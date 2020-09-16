@@ -1,28 +1,31 @@
-package io.javabrains.course;
+package io.javabrains.lesson;
+
+import io.javabrains.course.Course;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Course {
+public class Lesson {
     @Id
     private String id;
     private String name;
     private String description;
 
     @ManyToOne
-    private io.javabrains.topic.Topic topic;
+    private Course course;
 
-    public Course() {
+
+    public Lesson() {
     }
 
-    public Course(String id, String name, String description, String topicId) {
+    public Lesson(String id, String name, String description, String courseId, String topicId) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
-        this.topic = new io.javabrains.topic.Topic(topicId,"","");
+        this.course = new Course(courseId, "", "", topicId);
     }
 
     public String getId() {
@@ -49,12 +52,12 @@ public class Course {
         this.description = description;
     }
 
-    public io.javabrains.topic.Topic getTopic() {
-        return topic;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setTopic(io.javabrains.topic.Topic topic) {
-        this.topic = topic;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
 }

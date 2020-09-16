@@ -20,7 +20,7 @@ public class CourseService {
     }
 
     public java.util.Optional<Course> getCourse(String id){
-            return courseRepository.findById(id);
+        return courseRepository.findById(id);
     }
 
     public void addCourse(Course course) {
